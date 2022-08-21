@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApodList.MainPage"
+             xmlns:viewmodel="clr-namespace:ApodList.ViewModel"
+             xmlns:model="clr-namespace:ApodList.ViewModel"
+             x:DataType="viewmodel:MainViewModel">
+
+    <Grid RowDefinitions="Auto, *">
+        <StackLayout Grid.Row="0">
+            <Button 
+                Text="Fetch" 
+                Command="{Binding ReFreshCommand}" 
+                BackgroundColor="Black" />
+        </StackLayout>
+        <CollectionView 
+            ItemsSource="{Binding Headers}" 
+            Grid.Row="1" 
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type model:Apod}">
+                    <ContentView>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Path=TapCommand, Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}}" 
+                                        CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Label 
+                                    Text="{Binding Title}" />
+                            </Frame>
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
