@@ -11,18 +11,25 @@ namespace ApodList.ViewModel
         private static readonly string ApodUrl = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
         private static string Url => $"{ApodUrl}&start_date={DateTime.Now.AddDays(-7):yyyy-MM-dd}";
         private readonly HttpClient client;
-
+        private readonly IConnectivity connectivity;
         [ObservableProperty]
         ObservableCollection<Apod> headers = new();
 
-        public MainViewModel(HttpClient client)
+        public MainViewModel(HttpClient client, IConnectivity connectivity)
         {
             this.client = client;
+            this.connectivity = connectivity;
         }
 
         [RelayCommand]
         async Task ReFresh()
         {
+            if (connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await Shell.Current.DisplayAlert("No Internet", "No Internet access available", "Ok");
+                return;
+            }
+
             HttpRequestMessage request = new(HttpMethod.Get, Url);
             request.Headers.Add("Accept", "application/json");
             var response = await client.SendAsync(request);
