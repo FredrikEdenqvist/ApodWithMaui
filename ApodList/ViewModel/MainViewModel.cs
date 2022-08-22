@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Text;
 using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -9,7 +8,7 @@ namespace ApodList.ViewModel
     public partial class MainViewModel : ObservableObject
     {
         private static readonly string ApodUrl = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
-        private static string Url => $"{ApodUrl}&start_date={DateTime.Now.AddDays(-7):yyyy-MM-dd}";
+        private static string Url => $"{ApodUrl}&start_date={DateTime.Now.AddDays(-10):yyyy-MM-dd}";
         private readonly HttpClient client;
         private readonly IConnectivity connectivity;
         [ObservableProperty]
@@ -35,13 +34,11 @@ namespace ApodList.ViewModel
             var response = await client.SendAsync(request);
             if (response.IsSuccessStatusCode)
             {
-                var contentString = await response.Content.ReadAsStringAsync();
-                using var stream = new MemoryStream(Encoding.UTF8.GetBytes(contentString));
-                var json = await JsonSerializer.DeserializeAsync<Apod[]>(stream);
+                var json = await JsonSerializer.DeserializeAsync<Apod[]>(await response.Content.ReadAsStreamAsync());
                 if (json != null && json.Length > 0)
                 {
                     Headers.Clear();
-                    foreach (var item in json)
+                    foreach (var item in json.Where(x => x.IsImage)) // Only supports Images
                     {
                         Headers.Add(item);
                     }

@@ -6,7 +6,12 @@
              xmlns:viewmodel="clr-namespace:ApodList.ViewModel"
              xmlns:model="clr-namespace:ApodList.ViewModel"
              x:DataType="viewmodel:DetailsViewModel">
-    <Grid>
-        <Image Source="{Binding Apod.ImageUrl}" />
-    </Grid>
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <Border Margin="5" StrokeThickness="0">
+                <Label Text="{Binding Apod.Explanation}" />
+            </Border>
+            <Image Source="{Binding Apod.ImageUrl}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
