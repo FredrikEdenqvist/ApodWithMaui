@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31611.283
+VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApodList", "ApodList.csproj", "{CC823DA4-CD38-439F-BBC8-6BF8207FA088}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApodList", "ApodList.csproj", "{2901C111-EC30-4931-8E8E-43F6953C3034}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +11,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC823DA4-CD38-439F-BBC8-6BF8207FA088}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2901C111-EC30-4931-8E8E-43F6953C3034}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+		SolutionGuid = {D1B5944B-992C-4790-A4CD-D46EBEF161B2}
 	EndGlobalSection
 EndGlobal
