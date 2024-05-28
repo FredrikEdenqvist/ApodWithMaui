@@ -1,5 +1,4 @@
 ﻿using ApodList.ViewModel;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ApodList;
 
