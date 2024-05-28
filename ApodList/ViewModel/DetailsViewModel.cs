@@ -6,6 +6,6 @@ namespace ApodList.ViewModel;
 public partial class DetailsViewModel : ObservableObject
 {
     [ObservableProperty]
-    Apod apod;
+    Apod? apod;
 }
 
